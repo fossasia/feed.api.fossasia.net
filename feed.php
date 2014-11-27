@@ -50,7 +50,7 @@ header("Content-type: text/xml");
 $feed_date = date("r", mktime(10,0,0,9,8,2010));
 
 // Create new MergedRSS object with desired parameters
-$MergedRSS = new MergedRSS($feeds, "Freifunk Community Feeds", "http://www.freifunk.net/", "This the merged RSS feed of RSS feeds of our community", $feed_date);
+$MergedRSS = new MergedRSS($feeds, "Fossasia Community Feeds", "http://www.fossasia.net/", "This the merged RSS feed of RSS feeds of our community", $feed_date);
 
 //Export the first 10 items to screen
 $MergedRSS->export(false, true, 50);
