@@ -57,7 +57,9 @@ class MergedRSS {
 			} else { 
 				// retrieve updated rss feed
 				$sxe = $this->__fetch_rss_from_url($feed_url);
-				$results = $sxe->channel->item;
+				if ( is_object($sxe) ) {
+					$results = $sxe->channel->item;
+				}
 
 				if (!isset($results)) { 
 					// couldn't fetch from the url. grab a cached version if we can
@@ -67,7 +69,7 @@ class MergedRSS {
 					}
 				} else { 
 					// we need to update the cache file
-					$sxe->asXML($cache_file);
+					//$sxe->asXML($cache_file);
 				}
 			}
 
