@@ -43,6 +43,7 @@ foreach($geofeatures as $feature)
 
 // set the header type
 header("Content-type: text/xml");
+header('Access-Control-Allow-Origin: *');
 // set an arbitrary feed date
 $feed_date = date("r", mktime(10,0,0,9,8,2010));
 
@@ -50,5 +51,5 @@ $feed_date = date("r", mktime(10,0,0,9,8,2010));
 $MergedRSS = new MergedRSS($feeds, "Fossasia Community Feeds", "http://www.fossasia.net/", "This the merged RSS feed of RSS feeds of our community", $feed_date);
 
 //Export the first 10 items to screen
-$MergedRSS->export(false, true, 1, $_GET['source']);
+$MergedRSS->export(false, true, (array_key_exists('limit', $_GET) ? $_GET['limit'] : 1), $_GET['source']);
 
