@@ -1,6 +1,3 @@
-Anwendungen
-===========
-
 Community Map
 ----------------------
 
