@@ -42,6 +42,3 @@ The freifunk API is designed to collect metadata of communities in a decentral w
 
 [FOSSASIA API repo](https://github.com/fossasia/api.fossasia.net)
 
-## Contribute
-
-Issues & Pull Requests are highly appreciated. Check out our issues for contribution opportunities. 
