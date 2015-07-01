@@ -1,6 +1,6 @@
 FOSSASIA Feed Merger
 ===========
-RSS feed merger for FOSSASIA API communities
+RSS blog feed merger for FOSSASIA API communities
 
 [![Join the chat at https://gitter.im/fossasia/api.fossasia.net](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/api.fossasia.net?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -39,6 +39,8 @@ At the Wireless Community Weekend 2013 in Berlin there was a first meeting to re
 Based on the Hackerspaces API (http://hackerspaces.nl/spaceapi/) the idea of the freifunk API was born: Each community provides its data in a well defined format, hosted on their places (web space, wiki, web servers) and contributes a link to the directory. This directory only consists of the name and an url per community. First services supported by our freifunk API are the global community map and a community feed aggregator.
 
 The freifunk API is designed to collect metadata of communities in a decentral way and make it available to other users. It's not designated to be a freifunk node database or a directory of individual community firmware settings.
+
+[FOSSASIA API repo](https://github.com/fossasia/api.fossasia.net)
 
 ## Contribute
 
