@@ -7,7 +7,9 @@ if ( ! empty($_GET["category"]) ) {
 	$category = "blog";
 }
 
-$communities = "http://api.fossasia.net/ffGeoJson.json";
+$configs = file_get_contents("config.json");
+$configs = json_decode($configs, true);
+$communities = $configs['ffGeoJsonUrl'];
 
 //load combined api file
 $api = file_get_contents($communities);
