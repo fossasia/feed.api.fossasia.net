@@ -7,7 +7,9 @@ if ( ! empty($_GET["category"]) ) {
 	$category = "blog";
 }
 
-$communities = "http://api.fossasia.net/ffGeoJson.json";
+$configs = file_get_contents("config.json");
+$configs = json_decode($configs, true);
+$communities = $configs['ffGeoJsonUrl'];
 
 //load combined api file
 $api = file_get_contents($communities);
@@ -35,17 +37,15 @@ foreach($geofeatures as $feature)
 		foreach($feature['properties']['feeds'] as $feed )
 		{
 			if ( ! empty($feed['category']) && $feed['category'] == $category && !empty($feed['type']) && $feed['type'] == "rss" ) {
-				array_push($feeds, array($feed['url'],$feature['properties']['name'], $feature['properties']['url']))  ;
+				$feeds[$feature['properties']['shortname']] = array($feed['url'],$feature['properties']['name'], $feature['properties']['url']);
 			}
 		}
 	}
 }
 
-
-
 // set the header type
 header("Content-type: text/xml");
-
+header('Access-Control-Allow-Origin: *');
 // set an arbitrary feed date
 $feed_date = date("r", mktime(10,0,0,9,8,2010));
 
@@ -53,5 +53,5 @@ $feed_date = date("r", mktime(10,0,0,9,8,2010));
 $MergedRSS = new MergedRSS($feeds, "Fossasia Community Feeds", "http://www.fossasia.net/", "This the merged RSS feed of RSS feeds of our community", $feed_date);
 
 //Export the first 10 items to screen
-$MergedRSS->export(false, true, 29);
+$MergedRSS->export(false, true, (array_key_exists('limit', $_GET) ? $_GET['limit'] : 1), $_GET['source']);
 

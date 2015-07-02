@@ -32,12 +32,16 @@ class MergedRSS {
 	}
 
 	// exports the data as a returned value and/or outputted to the screen
-	public function export($return_as_string = true, $output = false, $limit = null) { 
+	public function export($return_as_string = true, $output = false, $limit = null, $community = 'all') {
 		// initialize a combined item array for later
 		$items = array();	
 
 		// loop through each feed
-		foreach ($this->myFeeds as $feed_array) {
+		foreach ($this->myFeeds as $key => $feed_array) {
+			if ($community !== 'all' && $key !== $community) {
+				continue;
+			}
+
 			$feed_url = $feed_array[0];
 			// determine my cache file name.  for now i assume they're all kept in a file called "cache"
 			$cache_file = "cache/" . $this->__create_feed_key($feed_url);
