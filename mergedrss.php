@@ -42,6 +42,7 @@ class MergedRSS {
 				continue;
 			}
 
+			$results = null;
 			$feed_url = $feed_array[0];
 			// determine my cache file name.  for now i assume they're all kept in a file called "cache"
 			$cache_file = "cache/" . $this->__create_feed_key($feed_url);
@@ -73,7 +74,9 @@ class MergedRSS {
 					}
 				} else { 
 					// we need to update the cache file
-					//$sxe->asXML($cache_file);
+					if (is_object($sxe)) {
+						$sxe->asXML($cache_file);
+					}
 				}
 			}
 
