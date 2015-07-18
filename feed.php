@@ -54,6 +54,6 @@ $feed_date = date("r", mktime(10,0,0,9,8,2010));
 $MergedRSS = new MergedRSS($feeds, "Fossasia Community Feeds", "http://www.fossasia.net/", "This the merged RSS feed of RSS feeds of our community", $feed_date);
 
 //Export the first 10 items to screen
-$result = $MergedRSS->export(true, false, (array_key_exists('limit', $_GET) ? $_GET['limit'] : 1), $_GET['source']);
+$result = $MergedRSS->export(true, false, (array_key_exists('limit', $_GET) ? $_GET['limit'] : 1), (array_key_exists('source', $_GET) ? $_GET['source'] : 'all'));
 
 JsonpHelper::outputXML($result);
