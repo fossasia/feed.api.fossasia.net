@@ -11,6 +11,9 @@ $configs = file_get_contents("config.json");
 $configs = json_decode($configs, true);
 $communities = $configs['ffGeoJsonUrl'];
 $limit = $configs['defaultLimit'];
+if ( ! empty($_GET["items"]) ) {
+	$limit = $_GET["items"];
+}
 $feeds = array();
 $urls = array();
 
