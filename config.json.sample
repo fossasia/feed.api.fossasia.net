@@ -1,3 +1,37 @@
 {
-	"ffGeoJsonUrl": "http://freifunk.net/map/ffGeoJson.json"
+	"ffGeoJsonUrl": "http://freifunk.net/map/ffGeoJson.json",
+	"defaultLimit" : 20,
+	"additionalFeeds" : 
+	[
+		{
+			"category" : "blog",
+			"url" : "http://blog.freifunk.net/rss.xml",
+			"name" : "blog.freifunk.net",
+			"homepage" : "http://blog.freifunk.net"
+		},
+		{
+			"category" : "blog",
+			"url" : "http://freifunkstattangst.de/feed/",
+			"name" : "freifunk statt Angst",
+			"homepage" : "http://freifunkstattangst.de"
+		},
+		{
+			"category" : "blog",
+			"url" : "http://radio.freifunk-bno.de/freifunk_radio_feedfeed.xml",
+			"name" : "Freifunk Radio",
+			"homepage" : "http://wiki.freifunk.net/Freifunk.radio"
+		},
+		{
+			"category" : "podcast",
+			"url" : "http://radio.freifunk-bno.de/freifunk_radio_feedfeed.xml",
+			"name" : "Freifunk Radio",
+			"homepage" : "http://wiki.freifunk.net/Freifunk.radio"
+		},
+		{
+			"category" : "podcast",
+			"url" : "http://rss.freifunk.net/tags/podcast.rss",
+			"name" : "Freifunk - zusammengetragene Audiobeiträge",
+			"homepage" : "http://rss.freifunk.net/tags/podcast"
+		}
+	]
 }

@@ -11,6 +11,7 @@ $configs = file_get_contents("config.json");
 $configs = json_decode($configs, true);
 $communities = $configs['ffGeoJsonUrl'];
 $limit = $configs['defaultLimit'];
+$feeds = array();
 $urls = array();
 
 //load combined api file
@@ -18,21 +19,14 @@ $api = file_get_contents($communities);
 $json = json_decode($api, true);
 $geofeatures = $json['features'];
 
-// place our feeds in an array for categories with static feeds
-switch ($category) {
-	case "blog":
-		$feeds = array(
-		);
-		break;
-	case "podcast":
-		$feeds = array(
-		);
-		break;
-	default:
-		$feeds = array();
+// get additional feeds from config
+foreach($configs['additionalFeeds'] as $additionalFeed) {
+	if ($additionalFeed['category'] == $category) {
+		$feeds[$additionalFeed['name']] = array($additionalFeed['url'], $additionalFeed['name'], $additionalFeed['homepage']);
+	}
 }
-		
 
+// get feeds from API
 foreach($geofeatures as $feature)
 {
 	if ( ! empty($feature['properties']['feeds'] ) ) {
